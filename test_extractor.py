@@ -1,7 +1,8 @@
 import json
 import csv
+import pandas as pd
 
-f = open('tracks.csv', 'w')
+f = open('track_IDs.csv', 'w')
 writer = csv.writer(f)
 
 f = open('test_set.json')
@@ -14,3 +15,8 @@ for playlist in data['playlists']:
             writer.writerow([track_id])
 
 f.close()
+
+# Remove duplicates
+df = pd.read_csv("track_IDs.csv")
+df.drop_duplicates(inplace=True)
+df.to_csv("track_IDs.csv", index=False)
