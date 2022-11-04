@@ -15,3 +15,4 @@ Also, a spotify client ID and secret is required to use the project. You can do 
     "client_secret" : "your-client-secret"
 }
 ~~~
+To see more details about the given features of each song, check the [Spotify Documentation](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-several-audio-features)
