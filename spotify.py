@@ -27,8 +27,9 @@ def get_secrets():
 def get_all_track_data():
     print("Getting Track Data...")
     stub = 'spotify:track:'
-    f = open('dataset.csv', 'w')
+    f = open('dataset.csv', 'a')
     writer = csv.writer(f)
+
     header = ['name', 'artist', 'danceability', 'energy', 'key', 'loudness', 'mode', 
     'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo',
     'duration_ms', 'time_signature', 'realease_year']
@@ -37,18 +38,23 @@ def get_all_track_data():
     with open('track_IDs.csv', 'r') as f:
         data = f.read().splitlines()
     
-    for track_id in data:
-        track_id = stub + track_id
+    for i in range(0,len(data)):
+        track_id = stub + data[i]
+        print("Getting Track Data for number : " + str(i + 1))
         data = get_song_data(track_id)
         writer.writerow(data)
+    
     f.close()
     print("Done!")
+
+
 def get_song_data(track_id):
     global spotify
     meta = spotify.track(track_id)
     album = meta['album']
     artists = album['artists']
     features = spotify.audio_features(track_id)[0]
+    print(meta['name'])
     return [meta['name'], artists[0]['name'], features['danceability'], features['energy'], 
     features['key'], features['loudness'], features['mode'], features['speechiness'], 
     features['acousticness'], features['instrumentalness'], features['liveness'], features['valence'], 
