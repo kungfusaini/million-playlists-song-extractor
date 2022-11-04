@@ -14,4 +14,3 @@ for playlist in data['playlists']:
             writer.writerow([track_id])
 
 f.close()
-
