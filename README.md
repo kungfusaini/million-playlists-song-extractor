@@ -1,5 +1,5 @@
-# million-playlists-song-extractor
-This project is for extracting information from a given spotify playlist, and saves it to disk.
+# Spotify Playlist Song Extractor
+This project is for extracting songs with characteristics from a given spotify playlist, and saves it to disk.
 
 This is done to create a smililar challenge to the [spotify million playlist challenge](https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge) for the King's College AI Society.
 
